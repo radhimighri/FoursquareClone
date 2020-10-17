@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+//
+//        let configuration = ParseClientConfiguration { (ParseMutableClientConfiguration) in
+//                 ParseMutableClientConfiguration.applicationId = "IzTxiIzLG9opFFnPwGs65Oro2yQJJAl2AdaVsqtx"
+//                 ParseMutableClientConfiguration.clientKey = "P4jPAO8Aob8MsAzq0cOBMUe6plVpd5zsp6hEE6g9"
+//                 ParseMutableClientConfiguration.server = "https://parseapi.back4app.com"
+//                 }
+        
+        let configuration = ParseClientConfiguration {
+
+            $0.applicationId = "IzTxiIzLG9opFFnPwGs65Oro2yQJJAl2AdaVsqtx"
+            $0.clientKey = "P4jPAO8Aob8MsAzq0cOBMUe6plVpd5zsp6hEE6g9"
+            $0.server = "https://parseapi.back4app.com"
+
+            }
+        Parse.initialize(with: configuration)
+//        saveInstallationObject()
+
         return true
     }
 
@@ -32,6 +50,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    // just to test the connection to the Parse server
+//func saveInstallationObject(){
+//    if let installation = PFInstallation.current(){
+//        installation.saveInBackground {
+//            (success: Bool, error: Error?) in
+//            if (success) {
+//                print("DEBUG: You have successfully connected your app to Back4App!")
+//            } else {
+//                if let myError = error{
+//                    print(myError.localizedDescription)
+//                }else{
+//                    print("DEBUG: Uknown error")
+//                }
+//            }
+//        }
+//    }
+//}
 
 }
 
